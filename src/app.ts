@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import { connect } from "./infra/database";
+import { errorMiddleware } from "./middlewares/error.middleware";
 
 
 class App{
@@ -17,7 +18,7 @@ class App{
     }
     //Onde os erros irão passar 
     interceptionError(){
-        //this.app.use()
+        this.app.use(errorMiddleware)
     }
     //Antes das rotas 
     middlewaresInitialize(){
