@@ -7,8 +7,8 @@ req: Request,
 res: Response, 
 next: NextFunction
 ){
-    const status: number = err.status
-    const message: string = err.message
+    const status: number = err.status ?? 500;
+    const message: string = err.message ?? 'Internal server error';
 
     res.status(status).json({
         status,
